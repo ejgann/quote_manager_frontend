@@ -12,7 +12,7 @@ function getQuotes() {
         quote.data.forEach(quote => {
             const quoteMarkup = `
                 <tr data-id=${quote.id}>
-                    <th scope="row">1</th>
+                    <th scope="row"></th>
                     <td>${quote.attributes.company} </td>
                     <td>${quote.attributes.website} </td>
                     <td>${quote.attributes.in_budget} </td>

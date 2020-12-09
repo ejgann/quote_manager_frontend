@@ -1,0 +1,14 @@
+.quote-main-container {
+    padding: 5px;
+    margin: 70px; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+div.page-header {
+    margin: 5px;
+    text-align: center;
+}
+
+.table {
+
+}
