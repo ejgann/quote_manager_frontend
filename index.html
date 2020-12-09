@@ -11,14 +11,38 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
     <body>
+        <div class="container">
+          <div class="jumbotron">
+            <h1>Quote Manager</h1>
+            <h2>Manage all of your home project quotes in one location</h2>
+          </div>
         
+          <div class="form-container">
+            <form id="quote-form" style="">
+              <h4>Add a New Quote</h4>
+
+              <input id="input-company" type="text" name="company" value="" placeholder="Enter the company's name..." class="input-text">
+              <br><br>
+              <input id="input-url" type="text" name="url" value="" placeholder="Enter company's website..." class="input-text">
+              <br><br>
+              <!-- <select id="projects" name="projects">
+                <option value="1">Art</option>
+                <option value="2">Tech</option>
+                <option value="3">Science</option>
+              </select>
+              <br><br> -->
+              <input id="input-quote-amount" type="number" name="quote-amount" value="" placeholder="Enter quoted amount..." class="input-quote-amount">
+
+            </form>
+          </div>
 
 
+        <!-- TABLE SHOWING ACTIVE QUOTES -->
         <main class="quote-main-container">
           <div class="page-header">
             <h3>Active Quotes</h3>
           </div>
-            <table class="table table-striped">
+            <table class="table">
                 <thead>
                   <tr>
                     <th scope="col"></th>
@@ -39,7 +63,8 @@
                 </tbody>
               </table>
         </main>
-        
+      </div>
+
         <script src="src/index.js" charset="utf-8"></script>
     </body>
 </html>
