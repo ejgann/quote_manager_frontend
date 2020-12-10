@@ -35,6 +35,9 @@ function createFormHander(e) {
     const companyInput = document.querySelector('#input-company') 
     "input-company".value
     const urlInput = document.querySelector('#input-url').value
+    const inBudget = document.querySelector
+
+    
     const quoteAmountInput = document.querySelector('#input-quote-amount').value
     const projectInput = document.querySelector('#projects').value
     const projectId = parseInt(projectInput)
