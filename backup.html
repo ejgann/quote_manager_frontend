@@ -11,16 +11,36 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
     <body>
-      <div class="container">
+        <div class="container">
           <div class="jumbotron">
             <h1>Quote Manager</h1>
             <h2>Manage all of your home project quotes in one location</h2>
           </div>
         
-          <div class="form-container">
+        <div class="form-container">
             <form id="quoteForm" method="POST">
               <h2 style=text-align:center>Add a New Quote</h2>
               <br>
+<!-- Dropdown populated with project names -->
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Project
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <button class="dropdown-item" type="button">Lawn</button>
+              <button class="dropdown-item" type="button">Kitchen Renovation</button>
+              <button class="dropdown-item" type="button">General Contracting</button>
+            </div>
+          </div>
+              <!-- <label class="input-project-type" for="project-type">
+                Project: 
+              </label>              
+              <select id="projects" name="projects">
+                <option value="1">Lawn Care</option>
+                <option value="2">Kitchen Renovation</option>
+                <option value="3">General Contracting</option>
+              </select> -->
+              <br><br>
               <label class="input-company" for="company">
                 Company: 
               </label>
@@ -36,33 +56,39 @@
               </label>
               <input id="input-quote-amount" type="number" name="quote-amount" value="" placeholder="$ Quoted amount..." class="input-quote-amount">
               <br><br>
-              <select id="projects" name="projects">
-                <option value="1">Lawn Care</option>
-                <option value="2">Kitchen Renovation</option>
-                <option value="3">General Contracting</option>
-              </select>
-                
-                <br><br>
-
 <!-- radio buttons for in_budget attribute -->
               
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="inBudgetRadio" id="inBudgetYes" value="true" checked>
+                <form action="#" method="post" class="budgetRadio" id="budgetRadio">
+                  <fieldset>
+                      <legend>Within or Outside of Your Budget?</legend>
+              
+                  <p>
+                      <label><input type="radio" name="budget" value="Within Budget" checked /> Within Budget </label>
+                      <br>
+                      <label><input type="radio" name="budget" value="Outside Budget" /> Outside Budget </label>
+                  </p>
+                  
+                  </fieldset>
+              </form>
+
+                <!-- <input class="form-check-input" type="radio" name="inBudgetRadio" id="inBudgetYes" value="true" checked>
                 <label class="form-check-label" for="inBudgetYes">
                   Within Budget
                 </label>
-                  <br>
+              </fieldset>
+              </div>
+              <div class="form-check">
                 <input class="form-check-input" type="radio" name="inBudgetRadio" id="inBudgetNo" value="false">
                 <label class="form-check-label" for="inBudgetNo">
                   Not Within Budget
                 </label>
-              </div> 
+              </div> -->
               <br><br>
               <input id="create-button" type="submit" name="submit" value="Add New Quote" class="submit">
             </form>
-        </div>
-
-
+          </div>
+<br><br>
 
         <!-- TABLE SHOWING ACTIVE QUOTES -->
         <main class="quote-main-container">
@@ -90,7 +116,7 @@
                 </tbody>
               </table>
         </main>
-    </div>
+      </div>
 
         <script src="src/index.js" charset="utf-8"></script>
     </body>

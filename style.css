@@ -1,12 +1,15 @@
 .form-container {
     background-color: #edf2f4;
     color: #2b2d42;
-    padding: 5px;
-    margin-top: auto;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 20px;
+    margin: 100px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+/* .dropdown-toggle {
+    background-color: #8d99ae;
+    color: #edf2f4;
+} */
 
 div.jumbotron {
     background-color: #2b2d42;
@@ -18,13 +21,9 @@ div.jumbotron {
 .quote-main-container {
     background-color: #2b2d42;
     color: #8d99ae;
-    padding: 5px;
-    margin-top: auto;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 20px;
+    margin: 100px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    width: 75%;
-    height: auto;
 }
 
 div.page-header {
