@@ -1,32 +1,31 @@
 .form-container {
-    background-color: #edf2f4;
-    color: #2b2d42;
+    background-color: #e7ecef;
+    color: #274c77;
     padding: 20px;
     margin: 100px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-family: 'Roboto', sans-serif;
 }
 
-/* .dropdown-toggle {
-    background-color: #8d99ae;
-    color: #edf2f4;
-} */
-
 div.jumbotron {
-    background-color: #2b2d42;
-    color: #8d99ae;
+    background-color: #274c77;
+    color: #e7ecef;
     font-family: Arial, Helvetica, sans-serif;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-family: 'Roboto', sans-serif;
 }
 
 .quote-main-container {
-    background-color: #2b2d42;
-    color: #8d99ae;
+    background-color: #274c77;
+    color: #e7ecef;
     padding: 20px;
     margin: 100px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-family: 'Roboto', sans-serif;
 }
 
 div.page-header {
     margin: 5px;
     text-align: center;
+    
 }

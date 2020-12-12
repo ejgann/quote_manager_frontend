@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
     </head>
     <body>
       <div class="container">
@@ -18,46 +20,26 @@
           </div>
         
           <div class="form-container">
-            <form id="quoteForm" method="POST">
+            <form id="quoteForm">
               <h2 style=text-align:center>Add a New Quote</h2>
               <br>
-              <label class="input-company" for="company">
-                Company: 
-              </label>
+              <label class="input-company" for="company">Company: </label>
               <input id="input-company" type="text" name="company" value="" placeholder="Company's name..." class="input-text">
               <br><br>
-              <label class="input-company-url" for="company-url">
-                Company Website: 
-              </label>
+              <label class="input-company-url" for="company-url">Company Website: </label>
               <input id="input-url" type="text" name="url" value="" placeholder="Company's website..." class="input-text">
               <br><br>
-              <label class="input-quote-amount" for="quote-amount">
-                Quote Amount: 
-              </label>
-              <input id="input-quote-amount" type="number" name="quote-amount" value="" placeholder="$ Quoted amount..." class="input-quote-amount">
+              <label class="input-quote-amount" for="quote-amount">Quote Amount: </label>
+              <input id="input-quote-amount" type="number" name="quote-amount" value="" placeholder="Quoted amount..." class="input-quote-amount">
               <br><br>
+              <h4>Choose an associated project</h4>
               <select id="projects" name="projects">
                 <option value="1">Lawn Care</option>
                 <option value="2">Kitchen Renovation</option>
                 <option value="3">General Contracting</option>
+                <option value="4">HVAC</option>
               </select>
-                
                 <br><br>
-
-<!-- radio buttons for in_budget attribute -->
-              
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="inBudgetRadio" id="inBudgetYes" value="true" checked>
-                <label class="form-check-label" for="inBudgetYes">
-                  Within Budget
-                </label>
-                  <br>
-                <input class="form-check-input" type="radio" name="inBudgetRadio" id="inBudgetNo" value="false">
-                <label class="form-check-label" for="inBudgetNo">
-                  Not Within Budget
-                </label>
-              </div> 
-              <br><br>
               <input id="create-button" type="submit" name="submit" value="Add New Quote" class="submit">
             </form>
         </div>
@@ -75,7 +57,6 @@
                     <th scope="col"></th>
                     <th scope="col">Company</th>
                     <th scope="col">Website</th>
-                    <th scope="col">Within Budget?</th>
                     <th scope="col">Quoted Price</th>
                     <!-- <th scope="col">Project</th> -->
                   </tr>
