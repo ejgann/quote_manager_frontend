@@ -33,6 +33,7 @@ function getQuotes() {
                         <td>${quote.attributes.company} </td>
                         <td>${quote.attributes.website} </td>
                         <td>${quote.attributes.quote_amount} </td>
+                        <td>${quote.attributes.project.name}</td>
                     </tr>
                 </div>`;
 
@@ -69,19 +70,17 @@ function postQuote(company, website, quote_amount, project_id) {
     .then(response => response.json())
     .then(quote => {
         console.log(quote);
-        // debugger
-        // let newQuote = new Quote(quoteData, quoteData.attributes)
-        // document.querySelector('#quote-container').innerHTML += newQuote
         const addedQuote = `
-                <div data-id=${quote.id}>
+                <div data-id=${quote.data.id}>
                     <tr>
                         <th scope="row"></th>
-                             <td>${quote.data.attributes.company.value} </td>
-                             <td>${quote.data.attributes.website.value} </td>
-                             <td>${quote.data.attributes.quote_amount.value} </td>
+                             <td>${quote.data.attributes.company} </td>
+                             <td>${quote.data.attributes.website} </td>
+                             <td>${quote.data.attributes.quote_amount} </td>
+                             <td>${quote.data.attributes.project.name}</td>
                     </tr>
                 </div>`;
 
-            document.querySelector('#quote_container').append(addedQuote)
+            document.querySelector('#quote_container').innerHTML += addedQuote;
     })
 }
