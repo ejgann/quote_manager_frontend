@@ -70,17 +70,18 @@ function postQuote(company, website, quote_amount, project_id) {
     .then(response => response.json())
     .then(quote => {
         console.log(quote);
-        const addedQuote = `
+        const quoteData = quote.data.attributes
+        const quoteMarkup = `
                 <div data-id=${quote.data.id}>
                     <tr>
                         <th scope="row"></th>
-                             <td>${quote.data.attributes.company} </td>
-                             <td>${quote.data.attributes.website} </td>
-                             <td>${quote.data.attributes.quote_amount} </td>
-                             <td>${quote.data.attributes.project.name}</td>
+                             <td>${quoteData.company} </td>
+                             <td>${quoteData.website} </td>
+                             <td>${quoteData.quote_amount} </td>
+                             <td>${quoteData.project.name}</td>
                     </tr>
                 </div>`;
 
-            document.querySelector('#quote_container').innerHTML += addedQuote;
+            document.querySelector('#quote_container').innerHTML += quoteMarkup;
     })
 }
