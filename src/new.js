@@ -10,42 +10,40 @@ document.addEventListener('DOMContentLoaded', () => {
     getQuotes();
 });
 
-// newQuoteBtn.addEventListener('click', () => {
-//     addQuote = !addQuote
-//     if (addQuote) {
-//         quoteForm.style.display = 'block'
-//     } else {
-//         quoteForm.style.display = 'none'
-//     }
-// })
+newQuoteBtn.addEventListener('click', () => {
+    addQuote = !addQuote
+    if (addQuote) {
+        quoteForm.style.display = 'block'
+    } else {
+        quoteForm.style.display = 'none'
+    }
+})
 
 quoteForm.addEventListener('submit', (e) => createFormHandler(e))
 
-function getQuotes() {
-    fetch(endPoint)
-    .then(res => res.json())
-    .then(quote => {
-        quote.data.forEach(quote => {
-            const quoteMarkup = `
-                <div data-id=${quote.id}>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>${quote.attributes.company} </td>
-                        <td>${quote.attributes.website} </td>
-                        <td>${quote.attributes.quote_amount} </td>
-                    </tr>
-                </div>`;
-
-            document.querySelector('#quote_container').innerHTML += quoteMarkup
-        })
+function addQuoteToTable(quote) {
+    quote.data.forEach(quote => {
+        quoteContainer.innerHTML += `
+            <div data-id=${quote.id}>
+                <tr>
+                    <th scope="row"></th>
+                    <td>${quote.attributes.company} </td>
+                    <td>${quote.attributes.website} </td>
+                    <td>${quote.attributes.quote_amount} </td>
+                </tr>
+            </div>`;
     })
 }
+
+fetch(endPoint)
+    .then(res => res.json())
+    .then(addQuoteToTable)
 
 
 
 function createFormHandler(e) {
     e.preventDefault()
-
+    
     // define const vars that identify form inputs and links them to document query selectors....will be referenced in last line of this function as postQuote with params using the same const vars.
 
     const companyInput = document.querySelector('#input-company').value
@@ -68,20 +66,10 @@ function postQuote(company, website, quote_amount, project_id) {
     })
     .then(response => response.json())
     .then(quote => {
+        debugger
         console.log(quote);
-        // debugger
-        // let newQuote = new Quote(quoteData, quoteData.attributes)
-        // document.querySelector('#quote-container').innerHTML += newQuote
-        const addedQuote = `
-                <div data-id=${quote.id}>
-                    <tr>
-                        <th scope="row"></th>
-                             <td>${quote.data.attributes.company.value} </td>
-                             <td>${quote.data.attributes.website.value} </td>
-                             <td>${quote.data.attributes.quote_amount.value} </td>
-                    </tr>
-                </div>`;
-
-            document.querySelector('#quote_container').append(addedQuote)
+        
+        
     })
 }
+

@@ -1,6 +1,6 @@
 .form-container {
-    background-color: #e7ecef;
-    color: #274c77;
+    background-color: #edf2f4;
+    color: #2b2d42;
     padding: 20px;
     margin: 100px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -8,16 +8,16 @@
 }
 
 div.jumbotron {
-    background-color: #274c77;
-    color: #e7ecef;
+    background-color: #2b2d42;
+    color: #edf2f4;
     font-family: Arial, Helvetica, sans-serif;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-family: 'Roboto', sans-serif;
 }
 
 .quote-main-container {
-    background-color: #274c77;
-    color: #e7ecef;
+    background-color: #2b2d42;
+    color: #edf2f4;
     padding: 20px;
     margin: 100px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
