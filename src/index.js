@@ -34,6 +34,7 @@ function getQuotes() {
                         <td>${quote.attributes.website} </td>
                         <td>${quote.attributes.quote_amount} </td>
                         <td>${quote.attributes.project.name}</td>
+                        <td><span class="iconify" data-icon="whh:circledelete" data-inline="false" style="color: #f1faee;" data-width="1.5em" data-height="1.5em"></span></td>
                     </tr>
                 </div>`;
 
