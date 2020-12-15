@@ -83,5 +83,7 @@ function postQuote(company, website, quote_amount, project_id) {
                 </div>`;
 
             document.querySelector('#quote_container').innerHTML += quoteMarkup;
+
+            document.querySelector('#quoteForm').reset();
     })
 }
