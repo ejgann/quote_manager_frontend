@@ -1,4 +1,4 @@
-const activeQuotesButton = document.querySelector('#activeQuotesButton')
+const activeQuotes = document.querySelector('#activeQuotes')
 const endPoint = "http://localhost:3000/api/v1/quotes";
 const quoteForm = document.querySelector('#quoteForm')
 let addQuote = false
@@ -11,16 +11,16 @@ document.addEventListener('DOMContentLoaded', () => {
     getQuotes();
 });
 
-// activeQuotesButton toggle
-document.getElementById("activeQuotesButton").addEventListener('click', tableToggle);
+// activeQuotes toggle
+document.getElementById("activeQuotes").addEventListener('click', tableToggle);
 
 function tableToggle(button) {
     if (quoteTable.style.display === "block") {
         quoteTable.style.display = "none";
-        document.getElementById(activeQuotesButton.id).value = 'Active Quotes';
+        document.getElementById(activeQuotes.id).value = 'Active Quotes';
     } else {
         quoteTable.style.display = "block";
-        document.getElementById(activeQuotesButton.id).value = "Close";
+        document.getElementById(activeQuotes.id).value = "Close";
     }
 }
 

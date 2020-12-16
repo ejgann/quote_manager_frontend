@@ -8,13 +8,13 @@ div.container {
     text-align: center;
     margin: 1em;
     padding: 20px;
-  color: #1d3557;
-  height: 7em;
-  width: 7em;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 900;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  /* float: right; */
+    color: #1d3557;
+    height: 10em;
+    width: 10em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* float: right; */
 }
 .btn.btn-primary:hover,
 .btn.btn-primary:focus {
