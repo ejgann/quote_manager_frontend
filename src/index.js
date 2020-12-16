@@ -1,8 +1,9 @@
+const activeQuotesButton = document.querySelector('#activeQuotesButton')
 const endPoint = "http://localhost:3000/api/v1/quotes";
-const newQuoteBtn = document.querySelector('#new-quote-btn')
 const quoteForm = document.querySelector('#quoteForm')
 let addQuote = false
 const quoteContainer = document.getElementById('quote_container')
+const quoteTable = document.querySelector('.quote-main-container')
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,14 +11,18 @@ document.addEventListener('DOMContentLoaded', () => {
     getQuotes();
 });
 
-// newQuoteBtn.addEventListener('click', () => {
-//     addQuote = !addQuote
-//     if (addQuote) {
-//         quoteForm.style.display = 'block'
-//     } else {
-//         quoteForm.style.display = 'none'
-//     }
-// })
+// activeQuotesButton toggle
+document.getElementById("activeQuotesButton").addEventListener('click', tableToggle);
+
+function tableToggle(button) {
+    if (quoteTable.style.display === "block") {
+        quoteTable.style.display = "none";
+        document.getElementById(activeQuotesButton.id).value = 'Active Quotes';
+    } else {
+        quoteTable.style.display = "block";
+        document.getElementById(activeQuotesButton.id).value = "Close";
+    }
+}
 
 quoteForm.addEventListener('submit', (e) => createFormHandler(e))
 
