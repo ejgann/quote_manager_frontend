@@ -34,7 +34,7 @@ function getQuotes() {
                         <td>${quote.attributes.website} </td>
                         <td>${quote.attributes.quote_amount} </td>
                         <td>${quote.attributes.project.name}</td>
-                        <td><span class="iconify" data-icon="whh:circledelete" data-inline="false" style="color: #f1faee;" data-width="1.5em" data-height="1.5em"></span></td>
+                        <td><button type="button" class="btn btn-small" data-toggle="modal">Select</button></td>
                     </tr>
                 </div>`;
 
@@ -42,7 +42,6 @@ function getQuotes() {
         })
     })
 }
-
 
 
 function createFormHandler(e) {
@@ -80,6 +79,7 @@ function postQuote(company, website, quote_amount, project_id) {
                              <td>${quoteData.website} </td>
                              <td>${quoteData.quote_amount} </td>
                              <td>${quoteData.project.name}</td>
+                             <td><button id="quoteBtn">Select</button></td>
                     </tr>
                 </div>`;
 

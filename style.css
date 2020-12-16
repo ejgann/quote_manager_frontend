@@ -3,6 +3,18 @@ div.container {
     padding: 20px;
 }
 
+.btn.btn-small {
+    background-color:#f1faee;
+    color: #457b9d;
+}
+
+.btn.btn-small:hover,
+.btn.btn-small:focus {
+  color: #e63946;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .form-container {
     background-color: #f1faee;
     color: #1d3557;
@@ -11,6 +23,19 @@ div.container {
     /* margin: 100px; */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-family: 'Roboto', sans-serif;
+}
+
+#create-button {
+    background-color:#457b9d;
+    color: #f1faee;
+}
+
+#create-button:hover,
+#create-button:focus {
+  background-color: #1d3557;
+  color: #f1faee;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 div.jumbotron {
