@@ -1,4 +1,4 @@
-const activeQuotes = document.querySelector('#activeQuotes')
+const activeQuotes = document.querySelector('.activeQuotes')
 const endPoint = "http://localhost:3000/api/v1/quotes";
 const quoteForm = document.querySelector('#quoteForm')
 let addQuote = false
@@ -6,23 +6,26 @@ const quoteContainer = document.getElementById('quote_container')
 const quoteTable = document.querySelector('.quote-main-container')
 
 
+// activeQuotes toggle
+// function tableToggle(button) {
+//     if (quoteTable.style.display === "block") {
+//         quoteTable.style.display = "none";
+//         document.getElementById(activeQuotes).innerText = 'View Active Quotes';
+//     } else {
+//         quoteTable.style.display = "block";
+//         document.getElementById(activeQuotes).innerText = 'Close';
+//     }
+// }
+
+// document.getElementById("activeQuotes").addEventListener('click', tableToggle);
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log('LOADED');
     getQuotes();
 });
 
-// activeQuotes toggle
-document.getElementById("activeQuotes").addEventListener('click', tableToggle);
-
-function tableToggle(button) {
-    if (quoteTable.style.display === "block") {
-        quoteTable.style.display = "none";
-        document.getElementById(activeQuotes.id).value = 'Active Quotes';
-    } else {
-        quoteTable.style.display = "block";
-        document.getElementById(activeQuotes.id).value = "Close";
-    }
-}
 
 quoteForm.addEventListener('submit', (e) => createFormHandler(e))
 
@@ -39,7 +42,6 @@ function getQuotes() {
                         <td>${quote.attributes.website} </td>
                         <td>${quote.attributes.quote_amount} </td>
                         <td>${quote.attributes.project.name}</td>
-                        <td><button type="button" class="btn btn-small" data-toggle="modal">Select</button></td>
                     </tr>
                 </div>`;
 
@@ -84,7 +86,6 @@ function postQuote(company, website, quote_amount, project_id) {
                              <td>${quoteData.website} </td>
                              <td>${quoteData.quote_amount} </td>
                              <td>${quoteData.project.name}</td>
-                             <td><button id="quoteBtn">Select</button></td>
                     </tr>
                 </div>`;
 

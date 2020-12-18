@@ -20,10 +20,10 @@
             <h2>Manage home project quotes</h2>
           </div>
   
-<!-- BUTTON TO BE CLICKED TO "get ACTIVE QUOTES -->
-<div id="activeQuotes"  
-<button type="button" id="activeQuotes" class="btn btn-primary"><h3>Active<br>Quotes</h3></button>
-  </div>
+<!-- BUTTON TO BE CLICKED TO "get" ACTIVE QUOTES -->
+<!-- <div id="activeQuotes"  
+<button type="button" id="activeQuotes" class="btn btn-primary"><h3>View<br>Active<br>Quotes</h3></button>
+  </div> -->
 
     <!-- FORM -->
           <div class="form-container">
@@ -55,7 +55,8 @@
 <!-- if "Active Quotes" button above is clicked, the "quote-main-container" appears. A second click hides it -->
 
 <!-- TABLE SHOWING ACTIVE QUOTES -->
-        <main class="quote-main-container" style="display:none;">
+        <main class="quote-main-container">
+          <!-- style="display:none;" -->
           <div class="page-header">
             <h2 style=text-align:center>Active Quotes</h2>
           </div>
@@ -67,7 +68,6 @@
                     <th scope="col">Website</th>
                     <th scope="col">Quoted Price</th>
                     <th scope="col">Project</th>
-                    <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody id="quote_container">
