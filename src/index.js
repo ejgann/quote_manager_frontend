@@ -4,21 +4,7 @@ const quoteForm = document.querySelector('#quoteForm')
 let addQuote = false
 const quoteContainer = document.getElementById('quote_container')
 const quoteTable = document.querySelector('.quote-main-container')
-
-
-// activeQuotes toggle
-// function tableToggle(button) {
-//     if (quoteTable.style.display === "block") {
-//         quoteTable.style.display = "none";
-//         document.getElementById(activeQuotes).innerText = 'View Active Quotes';
-//     } else {
-//         quoteTable.style.display = "block";
-//         document.getElementById(activeQuotes).innerText = 'Close';
-//     }
-// }
-
-// document.getElementById("activeQuotes").addEventListener('click', tableToggle);
-
+// NEED TO REFACTOR AND GET RID OF ALL GLOBAL VARS
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -36,7 +22,7 @@ function getQuotes() {
         quote.data.forEach(quote => {
             const quoteMarkup = `
                 <div data-id=${quote.id}>
-                    <tr>
+                    <tr class="hoverRow">
                         <th scope="row"></th>
                         <td>${quote.attributes.company} </td>
                         <td>${quote.attributes.website} </td>
@@ -46,6 +32,21 @@ function getQuotes() {
                 </div>`;
 
             document.querySelector('#quote_container').innerHTML += quoteMarkup
+
+            // add event listener tied to quote.data.id
+            // on hover of row, show details for quote.data.id
+
+            const row = document.querySelector('.hoverRow')
+            // row.addEventListener('click', function() {
+        $(document).ready(function(){
+            $('.hoverRow').popover({
+                title: "Header", 
+                content: "Blabla", 
+                trigger: "click",
+                placement: "bottom"
+            });
+          });
+            // })
         })
     })
 }
@@ -78,6 +79,7 @@ function postQuote(company, website, quote_amount, project_id) {
     .then(quote => {
         console.log(quote);
         const quoteData = quote.data.attributes
+
         const quoteMarkup = `
                 <div data-id=${quote.data.id}>
                     <tr>
@@ -92,5 +94,26 @@ function postQuote(company, website, quote_amount, project_id) {
             document.querySelector('#quote_container').innerHTML += quoteMarkup;
 
             document.querySelector('#quoteForm').reset();
+
     })
 }
+
+// upon clicking table row, popover appears to GET show the quote details
+
+const modal = document.querySelector("modal");
+const modalContent = document.querySelector("#modal-container");
+const modalOverlay = document.querySelector("#modal-overlay");
+const closeButton = document.querySelector("#close-button");
+const hoverRow = document.querySelector(".hoverRow");
+
+// closeButton.addEventListener("click", function() {
+//     modal.classList.toggle("closed");
+//     modalOverlay.classList.toggle("closed");
+// });
+
+// hoverRow.addEventListener("click", function() {
+//     modal.classList.toggle("closed");
+//     modalOverlay.classList.toggle("closed");
+// });
+
+// FETCH GET #SHOW request for modal content

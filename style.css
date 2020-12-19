@@ -91,3 +91,34 @@ tr:hover {
 tr:first-child:hover {
     background-color: #1d3557;
 }
+
+.modal {
+    background-color: #f1faee;
+    color: #457b9d;
+    position: fixed;
+    /* might want to experiment with absolute position */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    max-width: 100%;
+    /* max-width addresses problems when screens are a lot smaller than 600px */
+    height: 400px;
+    max-height: 100%;
+    /* max-height addresses problems with possibly ever-changing content length */
+    z-index: 1010;
+    display: flex;
+}
+
+.modal-overlay {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.modal.closed {
+    display: none;
+}
