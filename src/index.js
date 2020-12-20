@@ -20,6 +20,10 @@ function getQuotes() {
     .then(res => res.json())
     .then(quote => {
         quote.data.forEach(quote => {
+    // debugger
+            let newQuote = new Quote(quote, quote.attributes)
+            // creating new instance of Quote class
+
             const quoteMarkup = `
                 <div data-id=${quote.id}>
                     <tr class="hoverRow">
@@ -28,34 +32,38 @@ function getQuotes() {
                         <td>${quote.attributes.website} </td>
                         <td>${quote.attributes.quote_amount} </td>
                         <td>${quote.attributes.project.name}</td>
+                        <td><button type="button" class="btn btn-light" id="deleteBtn" >Delete</button> </td>
                     </tr>
                 </div>`;
 
             document.querySelector('#quote_container').innerHTML += quoteMarkup
 
-            // add event listener tied to quote.data.id
-            // on hover of row, show details for quote.data.id
+            let button = document.querySelector('#deleteBtn')
+            button.addEventListener('click', removeQuote)
 
-            const row = document.querySelector('.hoverRow')
-            // row.addEventListener('click', function() {
-        $(document).ready(function(){
-            $('.hoverRow').popover({
-                title: "Header", 
-                content: "Blabla", 
-                trigger: "click",
-                placement: "bottom"
-            });
-          });
-            // })
         })
     })
+}
+
+function removeQuote() {
+    e.preventDefault()
+    let quoteId = e.target.quote.id
+
+    fetch(endPoint+`/quotes/${id}`, {
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }
+    })
+    .then(e.target.parentElement.remove())
 }
 
 
 function createFormHandler(e) {
     e.preventDefault()
 
-    // define const vars that identify form inputs and links them to document query selectors....will be referenced in last line of this function as postQuote with params using the same const vars.
+    // define const vars that identify form inputs and links them to document query selectors....will be referenced in last line of this function as postQuote with params using the same const vars. Keys must be identical to those in db/schema.
 
     const companyInput = document.querySelector('#input-company').value
     const urlInput = document.querySelector('#input-url').value
@@ -88,6 +96,7 @@ function postQuote(company, website, quote_amount, project_id) {
                              <td>${quoteData.website} </td>
                              <td>${quoteData.quote_amount} </td>
                              <td>${quoteData.project.name}</td>
+                             <td><button type="button" class="btn btn-light" id="deleteBtn" >Delete</button> </td>
                     </tr>
                 </div>`;
 
@@ -97,23 +106,3 @@ function postQuote(company, website, quote_amount, project_id) {
 
     })
 }
-
-// upon clicking table row, popover appears to GET show the quote details
-
-const modal = document.querySelector("modal");
-const modalContent = document.querySelector("#modal-container");
-const modalOverlay = document.querySelector("#modal-overlay");
-const closeButton = document.querySelector("#close-button");
-const hoverRow = document.querySelector(".hoverRow");
-
-// closeButton.addEventListener("click", function() {
-//     modal.classList.toggle("closed");
-//     modalOverlay.classList.toggle("closed");
-// });
-
-// hoverRow.addEventListener("click", function() {
-//     modal.classList.toggle("closed");
-//     modalOverlay.classList.toggle("closed");
-// });
-
-// FETCH GET #SHOW request for modal content
