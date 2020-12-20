@@ -21,25 +21,26 @@ function getQuotes() {
     .then(quote => {
         quote.data.forEach(quote => {
     // debugger
-            let newQuote = new Quote(quote, quote.attributes)
+            const newQuote = new Quote(quote.id, quote.attributes)
             // creating new instance of Quote class
+            
 
-            const quoteMarkup = `
-                <div data-id=${quote.id}>
-                    <tr class="hoverRow">
-                        <th scope="row"></th>
-                        <td>${quote.attributes.company} </td>
-                        <td>${quote.attributes.website} </td>
-                        <td>${quote.attributes.quote_amount} </td>
-                        <td>${quote.attributes.project.name}</td>
-                        <td><button type="button" class="btn btn-light" id="deleteBtn" >Delete</button> </td>
-                    </tr>
-                </div>`;
+            // const quoteMarkup = `
+            //     <div data-id=${quote.id}>
+            //         <tr class="hoverRow">
+            //             <th scope="row"></th>
+            //             <td>${quote.attributes.company} </td>
+            //             <td>${quote.attributes.website} </td>
+            //             <td>${quote.attributes.quote_amount} </td>
+            //             <td>${quote.attributes.project.name}</td>
+            //             <td><button type="button" class="btn btn-light" id="deleteBtn" >Delete</button> </td>
+            //         </tr>
+            //     </div>`;
 
-            document.querySelector('#quote_container').innerHTML += quoteMarkup
-
-            let button = document.querySelector('#deleteBtn')
-            button.addEventListener('click', removeQuote)
+            document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
+// debugger
+            // let button = document.querySelector('#deleteBtn')
+            // button.addEventListener('click', removeQuote)
 
         })
     })
