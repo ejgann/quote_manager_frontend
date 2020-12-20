@@ -22,20 +22,6 @@ function getQuotes() {
         quote.data.forEach(quote => {
     // debugger
             const newQuote = new Quote(quote.id, quote.attributes)
-            // creating new instance of Quote class
-            
-
-            // const quoteMarkup = `
-            //     <div data-id=${quote.id}>
-            //         <tr class="hoverRow">
-            //             <th scope="row"></th>
-            //             <td>${quote.attributes.company} </td>
-            //             <td>${quote.attributes.website} </td>
-            //             <td>${quote.attributes.quote_amount} </td>
-            //             <td>${quote.attributes.project.name}</td>
-            //             <td><button type="button" class="btn btn-light" id="deleteBtn" >Delete</button> </td>
-            //         </tr>
-            //     </div>`;
 
             document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
 // debugger
@@ -86,24 +72,24 @@ function postQuote(company, website, quote_amount, project_id) {
     })
     .then(response => response.json())
     .then(quote => {
-        console.log(quote);
-        const quoteData = quote.data.attributes
+        // console.log(quote);
+        const newQuote = new Quote(quote.data.id, quote.data.attributes)
 
-        const quoteMarkup = `
-                <div data-id=${quote.data.id}>
-                    <tr>
-                        <th scope="row"></th>
-                             <td>${quoteData.company} </td>
-                             <td>${quoteData.website} </td>
-                             <td>${quoteData.quote_amount} </td>
-                             <td>${quoteData.project.name}</td>
-                             <td><button type="button" class="btn btn-light" id="deleteBtn" >Delete</button> </td>
-                    </tr>
-                </div>`;
+        // const quoteMarkup = `
+        //         <div data-id=${quote.data.id}>
+        //             <tr>
+        //                 <th scope="row"></th>
+        //                      <td>${quoteData.company} </td>
+        //                      <td>${quoteData.website} </td>
+        //                      <td>${quoteData.quote_amount} </td>
+        //                      <td>${quoteData.project.name}</td>
+        //                      <td><button type="button" class="btn btn-light" id="deleteBtn" >Delete</button> </td>
+        //             </tr>
+        //         </div>`;
 
-            document.querySelector('#quote_container').innerHTML += quoteMarkup;
+            document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
 
             document.querySelector('#quoteForm').reset();
-
+// console.log(newQuote);
     })
 }
