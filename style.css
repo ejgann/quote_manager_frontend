@@ -3,26 +3,6 @@ div.container {
     padding: 20px;
 }
 
-/* .btn.btn-primary {
-    background-color: #f1faee;
-    text-align: center;
-    margin: 20px;
-    padding: 10px;
-    color: #1d3557;
-    height: 10em;
-    width: 10em;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 900;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    /* float: right; 
-}
-.btn.btn-primary:hover,
-.btn.btn-primary:focus {
-    background-color: #e63946;
-    color: #f1faee;
-    cursor: pointer;
-} */
-
 .btn.btn-small {
     background-color:#f1faee;
     color: #457b9d;
@@ -85,40 +65,9 @@ div.page-header {
 
 tr:hover {
     background-color: #e63946;
-    color: #f1faee;
+    color: #f1faee;    
 }
 
 tr:first-child:hover {
     background-color: #1d3557;
-}
-
-.modal {
-    background-color: #f1faee;
-    color: #457b9d;
-    position: fixed;
-    /* might want to experiment with absolute position */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px;
-    max-width: 100%;
-    /* max-width addresses problems when screens are a lot smaller than 600px */
-    height: 400px;
-    max-height: 100%;
-    /* max-height addresses problems with possibly ever-changing content length */
-    z-index: 1010;
-    display: flex;
-}
-
-.modal-overlay {
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.modal.closed {
-    display: none;
 }

@@ -1,7 +1,6 @@
-const activeQuotes = document.querySelector('.activeQuotes')
 const endPoint = "http://localhost:3000/api/v1/quotes";
-const quoteForm = document.querySelector('#quoteForm')
-let addQuote = false
+// const quoteForm = document.querySelector('#quoteForm')
+// tried to replace this global by attaching it directly to eventListener below
 const quoteContainer = document.getElementById('quote_container')
 const quoteTable = document.querySelector('.quote-main-container')
 // NEED TO REFACTOR AND GET RID OF ALL GLOBAL VARS
@@ -13,21 +12,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-quoteForm.addEventListener('submit', (e) => createFormHandler(e))
+document.querySelector('#quoteForm').addEventListener('submit', (e) => createFormHandler(e))
 
 function getQuotes() {
     fetch(endPoint)
     .then(res => res.json())
     .then(quote => {
         quote.data.forEach(quote => {
-    // debugger
             const newQuote = new Quote(quote.id, quote.attributes)
 
             document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
-// debugger
-            // let button = document.querySelector('#deleteBtn')
-            // button.addEventListener('click', removeQuote)
-
         })
     })
 }
@@ -62,7 +56,6 @@ function createFormHandler(e) {
 
 
 function postQuote(company, website, quote_amount, project_id) {
-    //  console.log(company, website, quote_amount, project_id);
     let bodyData = {company, website, quote_amount, project_id}
 
     fetch(endPoint, {
@@ -72,20 +65,7 @@ function postQuote(company, website, quote_amount, project_id) {
     })
     .then(response => response.json())
     .then(quote => {
-        // console.log(quote);
         const newQuote = new Quote(quote.data.id, quote.data.attributes)
-
-        // const quoteMarkup = `
-        //         <div data-id=${quote.data.id}>
-        //             <tr>
-        //                 <th scope="row"></th>
-        //                      <td>${quoteData.company} </td>
-        //                      <td>${quoteData.website} </td>
-        //                      <td>${quoteData.quote_amount} </td>
-        //                      <td>${quoteData.project.name}</td>
-        //                      <td><button type="button" class="btn btn-light" id="deleteBtn" >Delete</button> </td>
-        //             </tr>
-        //         </div>`;
 
             document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
 
@@ -93,3 +73,8 @@ function postQuote(company, website, quote_amount, project_id) {
 // console.log(newQuote);
     })
 }
+
+// function iconHover() {
+//     const row = document.querySelector('.hoverRow')
+
+// }
