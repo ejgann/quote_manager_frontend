@@ -1,18 +1,10 @@
 const endPoint = "http://localhost:3000/api/v1/quotes";
-// const quoteForm = document.querySelector('#quoteForm')
-// tried to replace this global by attaching it directly to eventListener below
-const quoteContainer = document.getElementById('quote_container')
-const quoteTable = document.querySelector('.quote-main-container')
-// NEED TO REFACTOR AND GET RID OF ALL GLOBAL VARS
 
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('LOADED');
     getQuotes();
 });
-
-
-document.querySelector('#quoteForm').addEventListener('submit', (e) => createFormHandler(e))
 
 function getQuotes() {
     fetch(endPoint)
@@ -26,19 +18,6 @@ function getQuotes() {
     })
 }
 
-function removeQuote() {
-    e.preventDefault()
-    let quoteId = e.target.quote.id
-
-    fetch(endPoint+`/quotes/${id}`, {
-        method: "DELETE",
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        }
-    })
-    .then(e.target.parentElement.remove())
-}
 
 
 function createFormHandler(e) {
@@ -54,6 +33,8 @@ function createFormHandler(e) {
     postQuote(companyInput, urlInput, quoteAmountInput, projectInput) 
 }
 
+document.querySelector('#quoteForm').addEventListener('submit', (e) => createFormHandler(e))
+
 
 function postQuote(company, website, quote_amount, project_id) {
     let bodyData = {company, website, quote_amount, project_id}
@@ -67,14 +48,9 @@ function postQuote(company, website, quote_amount, project_id) {
     .then(quote => {
         const newQuote = new Quote(quote.data.id, quote.data.attributes)
 
-            document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
+            document.querySelector('#quote-squares-container').innerHTML += newQuote.renderQuoteRow();
 
             document.querySelector('#quoteForm').reset();
 // console.log(newQuote);
     })
 }
-
-// function iconHover() {
-//     const row = document.querySelector('.hoverRow')
-
-// }
