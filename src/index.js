@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('LOADED');
     getQuotes();
+    getProject();
 });
 
 function getQuotes() {
@@ -14,20 +15,6 @@ function getQuotes() {
         })
     })
 }
-
-
-// PROJECT GET FETCH
-// function getProject() {
-//     fetch("http://localhost:3000/api/v1/projects")
-//     .then(res => res.json())
-//     .then(project => {
-//         project.data.forEach(project => {
-//             const newQuote = new Quote(quote.id, quote.attributes)
-
-//             document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
-//         })
-//     })
-// }
 
 
 function createFormHandler(e) {
@@ -64,9 +51,7 @@ function postQuote(company, website, quote_amount, project_id) {
 }
 
 
-// MODAL
-
-
+// PROJECT MODAL
 
 // Get the modal
 const modal = document.getElementById("myModal");
@@ -81,18 +66,11 @@ const span = document.getElementsByClassName("close")[0];
 btn.addEventListener('click', () => {
     modal.style.display = "block";
 })
-// btn.onclick = function() {
-//   modal.style.display = "block";
-// }
-
 
 // When the user clicks on <span> (x), close the modal
 span.addEventListener('click', function () {
     modal.style.display = "none";
 })
-// span.onclick = function() {
-//   modal.style.display = "none";
-// }
 
 // When the user clicks anywhere outside of the modal, close it
 window.addEventListener("click", function(e) {
@@ -101,8 +79,36 @@ window.addEventListener("click", function(e) {
     }
 })
 
-// window.onclick = function(event) {
-//   if (event.target == modal) {
-//     modal.style.display = "none";
-//   }
+
+// PROJECT GET FETCH
+function getProject() {
+    fetch("http://localhost:3000/api/v1/projects")
+    .then(res => res.json())
+    .then(project => {
+        project.data.forEach(project => {
+            debugger
+            const projectInfo = `
+                <div data-id=${project.id}>
+                <h3>${project.attributes.name} </h3>
+                <p>$ ${project.attributes.budget} budget</p>
+                
+                </div>`;
+
+            document.querySelector('.modalInfo').innerHTML += projectInfo.renderProjectModal();
+        })
+    })
+}
+
+// .then(function(json) {
+//     for(var i = 0; i < json.products.length; i++) {
+//       var listItem = document.createElement('li');
+//       listItem.innerHTML = '<strong>' + json.products[i].Name + '</strong>';
+//       listItem.innerHTML +=' can be found in ' + json.products[i].Location + '.';
+//       listItem.innerHTML +=' Cost: <strong>£' + json.products[i].Price + '</strong>';
+//       myList.appendChild(listItem);
+//     }
+//   })
+
+// renderProjectModal() {
+
 // }
