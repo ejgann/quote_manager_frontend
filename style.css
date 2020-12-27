@@ -16,6 +16,7 @@ div.jumbotron {
   background-color: #f1faee;
   color: #1d3557;
   padding: 20px;
+  margin-bottom: 20px;
   float: left;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   font-family: 'Roboto', sans-serif;
@@ -45,6 +46,12 @@ cursor: pointer;
   flex-basis: calc(50% - 40px);  
   justify-content: center;
   flex-direction: column;
+  height: 100px;
+  width: 100px; 
+  background-color: #e63946;
+  color: #f1faee;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-family: 'Roboto', sans-serif;
 }
 .grid2x2 > div > div {
   display: flex;
@@ -52,11 +59,13 @@ cursor: pointer;
   flex-direction: row;
 }
 
-.box { margin: 20px; }
-.box1 { background-color: red; }
-.box2 { background-color: orange; }
-.box3 { background-color: purple; }
-.box4 { background-color: grey; }
+.box { 
+  margin: 20px;
+  
+   
+  background-color: #e63946;
+  color: #f1faee;
+}
 
 /* .projectBox {
   width: 200px;
@@ -83,11 +92,11 @@ main.quote-main-container {
   background-color: #1d3557;
   color: #f1faee;
   padding: 20px 20px 20px 20px;
-  float: right;
-  width: 800px;
-  margin: 20px;
+  width: 100%;
+  clear: left;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   font-family: 'Roboto', sans-serif;
+  margin: auto;
 }
 
 div.page-header {
@@ -105,7 +114,6 @@ div.page-header {
 
 .grid-container > div {
   background-color: red;
-  
   text-align: center;
   padding: 20px 0;
   font-size: 30px;
@@ -117,10 +125,10 @@ div.page-header {
   margin: 10px;
   padding: 5px;
   grid-row: 1 / span 1;
-}
+} */
 
-.box {
-  /* width: 600px; */
+/* .box {  
+  width: 600px;
   margin: 10px;
   padding: 5px;
   grid-row: 1 / span 1;
@@ -148,4 +156,71 @@ div.page-header {
 #box4 {
   background-color: gray;
   color: white;
- } */
+ } */ 
+
+ /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #f1faee;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+.myButton {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-family: 'Roboto', sans-serif;
+	background-color:#e63946;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#f1faee;
+	font-size:20px;
+	font-weight:bold;
+	padding:30px 65px;
+  text-decoration:none;
+}
+	
+	.myButton:hover {
+  background-color: #1d3557;
+  color: #f1faee;
+  }
+
+ .myButton:active {
+	position:relative;
+	top:1px;
+}
+        
+
+    
