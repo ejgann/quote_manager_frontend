@@ -1,86 +1,89 @@
 <!DOCTYPE html>
 <html>
+
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
-        <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
+  
     <body>
+  
       <div class="container">
+
           <div class="jumbotron">
             <h1>Quote Manager</h1>
             <h2>Manage professional quotes for home improvement projects</h2>
           </div>
 
+  <!-- FORM FOR NEW QUOTES -->
+  <div class="form-container">
+    <form id="quoteForm">
+      <h2 style=text-align:center>Add a New Quote</h2>
+      <br>
+      <label class="input-company" for="company">Company: </label>
+      <input id="input-company" type="text" name="company" value="" placeholder="Company's name..." class="input-text">
+      <br><br>
+      <label class="input-company-url" for="company-url">Company Website: </label>
+      <input id="input-url" type="text" name="url" value="" placeholder="Company's website..." class="input-text">
+      <br><br>
+      <label class="input-quote-amount" for="quote-amount">Quote Amount: </label>
+      <input id="input-quote-amount" type="number" name="quote-amount" value="" placeholder="Quoted amount..." class="input-quote-amount">
+      <br><br>
+      <h4>Choose an associated project</h4>
+      <select id="projects" name="projects">
+        <option value="1">Lawn Care</option>
+        <option value="2">Kitchen Renovation</option>
+        <option value="3">General Contracting</option>
+        <option value="4">HVAC</option>
+      </select>
+        <br><br>
+      <input id="create-button" type="submit" name="submit" value="Add New Quote" class="btn">
+    </form>
+</div>
 
-    <!-- FORM FOR NEW QUOTES -->
-          <div class="form-container">
-            <form id="quoteForm">
-              <h2 style=text-align:center>Add a New Quote</h2>
-              <br>
-              <label class="input-company" for="company">Company: </label>
-              <input id="input-company" type="text" name="company" value="" placeholder="Company's name..." class="input-text">
-              <br><br>
-              <label class="input-company-url" for="company-url">Company Website: </label>
-              <input id="input-url" type="text" name="url" value="" placeholder="Company's website..." class="input-text">
-              <br><br>
-              <label class="input-quote-amount" for="quote-amount">Quote Amount: </label>
-              <input id="input-quote-amount" type="number" name="quote-amount" value="" placeholder="Quoted amount..." class="input-quote-amount">
-              <br><br>
-              <h4>Choose an associated project</h4>
-              <select id="projects" name="projects">
-                <option value="1">Lawn Care</option>
-                <option value="2">Kitchen Renovation</option>
-                <option value="3">General Contracting</option>
-                <option value="4">HVAC</option>
-              </select>
-                <br><br>
-              <input id="create-button" type="submit" name="submit" value="Add New Quote" class="btn">
-            </form>
-        </div>
+<!-- PROJECT BUTTONS -->
+
+<div class="lawnBtn"></div>
+
 
 <!-- TABLE SHOWING ACTIVE QUOTES -->
-        <main class="quote-main-container">
-          <!-- style="display:none;" -->
-          <div class="page-header">
-            <h2 style=text-align:center>Active Quotes</h2>
-          </div>
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col"></th>
-                    <th scope="col">Company</th>
-                    <th scope="col">Website</th>
-                    <th scope="col">Quoted Price</th>
-                    <th scope="col">Project</th>
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
-                <tbody id="quote_container">
-                  <!-- <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr> -->
-                </tbody>
-              </table>
-        </main>
-        <br><br>
-    </div>
-    <br><br>
 
-
-    
-      <script src="src/quote.js" charset="utf-8"></script>
-      <script src="src/index.js" charset="utf-8"></script>
+<main class="quote-main-container">
+  <!-- style="display:none;" -->
+  <div class="page-header">
+    <h2 style=text-align:center>Active Quotes</h2>
+  </div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Company</th>
+            <th scope="col">Website</th>
+            <th scope="col">Quoted Price</th>
+            <th scope="col">Project</th>
+            <!-- <th scope="col"></th> -->
+          </tr>
+        </thead>
+        <tbody id="quote_container">
+          <!-- <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr> -->
+        </tbody>
+      </table>
+</main>
+<br><br>
+</div>
+<br><br>
+  
+<script src="src/quote.js" charset="utf-8"></script>
+<script src="src/index.js" charset="utf-8"></script>
+      
     </body>
+
+  
 </html>

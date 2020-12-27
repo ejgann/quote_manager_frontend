@@ -3,35 +3,20 @@ div.container {
   padding: 20px;
 }
 
-#deleteBtn {
-  background-color: #f1faee;
-  color:#457b9d;
+div.jumbotron {
+  background-color: #e63946;
+  color: #f1faee;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
 }
-#deleteBtn:hover,
-#deleteBtn:focus {
-  color:#f1faee;
-  background-color:#457b9d;
-  cursor: pointer;
-}
-
-/* .btn.btn-small {
-  background-color:#f1faee;
-  color: #457b9d;
-} 
-
-.btn.btn-small:hover,
-.btn.btn-small:focus {
-color: #e63946;
-text-decoration: none;
-cursor: pointer;
-} */
 
 .form-container {
   background-color: #f1faee;
   color: #1d3557;
   padding: 20px;
   float: left;
-  /* margin: 100px; */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   font-family: 'Roboto', sans-serif;
 }
@@ -49,13 +34,11 @@ text-decoration: none;
 cursor: pointer;
 }
 
-div.jumbotron {
-  background-color: #e63946;
-  color: #f1faee;
-  font-family: Arial, Helvetica, sans-serif;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  font-family: 'Roboto', sans-serif;
-  text-align: center;
+div.lawnBtn {
+  width: 150px;
+  height: 150px;
+  background-color: green;
+  color: white;
 }
 
 .quote-main-container {
@@ -64,7 +47,6 @@ div.jumbotron {
   padding: 20px;
   float: right;
   width: 800px;
-  /* margin: 100px; */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   font-family: 'Roboto', sans-serif;
 }
@@ -74,11 +56,57 @@ div.page-header {
   text-align: center;
 }
 
-tr:hover {
-  background-color: #e63946;
-  color: #f1faee;    
+/* .grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+  background-color: slateblue;
+  padding: 10px;
 }
 
-tr:first-child:hover {
-  background-color: #1d3557;
+.grid-container > div {
+  background-color: red;
+  
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
 }
+
+.project {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  padding: 5px;
+  grid-row: 1 / span 1;
+}
+
+.box {
+  /* width: 600px; */
+  margin: 10px;
+  padding: 5px;
+  grid-row: 1 / span 1;
+}
+
+#box1 {
+  background-color: gray;
+  color: white;
+  
+  
+}
+
+#box2 {
+  background-color: gray;
+  color: white;
+  
+}
+
+#box3 {
+  background-color: gray;
+  color: white;
+
+}
+
+#box4 {
+  background-color: gray;
+  color: white;
+ } */

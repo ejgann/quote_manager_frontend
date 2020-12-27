@@ -1,10 +1,13 @@
+const endPoint = "http://localhost:3000/api/v1/quotes";
+
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log('LOADED');
     getQuotes();
 });
 
 function getQuotes() {
-    fetch("http://localhost:3000/api/v1/quotes")
+    fetch(endPoint)
     .then(res => res.json())
     .then(quote => {
         quote.data.forEach(quote => {
@@ -33,7 +36,7 @@ document.querySelector('#quoteForm').addEventListener('submit', (e) => createFor
 
 function postQuote(company, website, quote_amount, project_id) {
     let bodyData = {company, website, quote_amount, project_id}
-    let endPoint = "http://localhost:3000/api/v1/quotes";
+
     fetch(endPoint, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
@@ -43,7 +46,7 @@ function postQuote(company, website, quote_amount, project_id) {
     .then(quote => {
         const newQuote = new Quote(quote.data.id, quote.data.attributes)
 
-            document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
+            document.querySelector('#quote-squares-container').innerHTML += newQuote.renderQuoteRow();
 
             document.querySelector('#quoteForm').reset();
 // console.log(newQuote);
