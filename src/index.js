@@ -16,6 +16,19 @@ function getQuotes() {
 }
 
 
+// PROJECT GET FETCH
+// function getProject() {
+//     fetch("http://localhost:3000/api/v1/projects")
+//     .then(res => res.json())
+//     .then(project => {
+//         project.data.forEach(project => {
+//             const newQuote = new Quote(quote.id, quote.attributes)
+
+//             document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
+//         })
+//     })
+// }
+
 
 function createFormHandler(e) {
     e.preventDefault()

@@ -34,19 +34,58 @@ text-decoration: none;
 cursor: pointer;
 }
 
-div.lawnBtn {
-  width: 150px;
-  height: 150px;
-  background-color: green;
-  color: white;
+.grid2x2 {
+  min-height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.grid2x2 > div {
+  display: flex; 
+  flex-basis: calc(50% - 40px);  
+  justify-content: center;
+  flex-direction: column;
+}
+.grid2x2 > div > div {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
 }
 
-.quote-main-container {
+.box { margin: 20px; }
+.box1 { background-color: red; }
+.box2 { background-color: orange; }
+.box3 { background-color: purple; }
+.box4 { background-color: grey; }
+
+/* .projectBox {
+  width: 200px;
+  height: 200px;
+  background-color: green;
+  color: white;
+  display: flex;
+  margin: 20px; 
+  flex-basis:content;  
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-family: 'Roboto', sans-serif;
+}
+
+.projectBox > h3 {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin: 20px;
+} */
+
+main.quote-main-container {
   background-color: #1d3557;
   color: #f1faee;
-  padding: 20px;
+  padding: 20px 20px 20px 20px;
   float: right;
   width: 800px;
+  margin: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   font-family: 'Roboto', sans-serif;
 }
