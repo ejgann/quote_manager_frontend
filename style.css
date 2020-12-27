@@ -198,7 +198,7 @@ div.page-header {
 
 
 
-.myButton {
+#myButton {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   font-family: 'Roboto', sans-serif;
 	background-color:#e63946;
@@ -212,12 +212,12 @@ div.page-header {
   text-decoration:none;
 }
 	
-	.myButton:hover {
+	#myButton:hover {
   background-color: #1d3557;
   color: #f1faee;
   }
 
- .myButton:active {
+ #myButton:active {
 	position:relative;
 	top:1px;
 }
