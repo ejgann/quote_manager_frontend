@@ -1,53 +1,24 @@
-const endPoint = "http://localhost:3000/api/v1/quotes";
-const newQuoteBtn = document.querySelector('#new-quote-btn')
-const quoteForm = document.querySelector('#quoteForm')
-let addQuote = false
-const quoteContainer = document.getElementById('quote_container')
-
-
 document.addEventListener('DOMContentLoaded', () => {
     console.log('LOADED');
     getQuotes();
+    getProject();
 });
 
-// newQuoteBtn.addEventListener('click', () => {
-//     addQuote = !addQuote
-//     if (addQuote) {
-//         quoteForm.style.display = 'block'
-//     } else {
-//         quoteForm.style.display = 'none'
-//     }
-// })
-
-quoteForm.addEventListener('submit', (e) => createFormHandler(e))
-
 function getQuotes() {
-    fetch(endPoint)
+    fetch("http://localhost:3000/api/v1/quotes")
     .then(res => res.json())
     .then(quote => {
         quote.data.forEach(quote => {
-            const quoteMarkup = `
-                <div data-id=${quote.id}>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>${quote.attributes.company} </td>
-                        <td>${quote.attributes.website} </td>
-                        <td>${quote.attributes.quote_amount} </td>
-                        <td>${quote.attributes.project.name}</td>
-                    </tr>
-                </div>`;
+            const newQuote = new Quote(quote.id, quote.attributes)
 
-            document.querySelector('#quote_container').innerHTML += quoteMarkup
+            document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
         })
     })
 }
 
 
-
 function createFormHandler(e) {
     e.preventDefault()
-
-    // define const vars that identify form inputs and links them to document query selectors....will be referenced in last line of this function as postQuote with params using the same const vars.
 
     const companyInput = document.querySelector('#input-company').value
     const urlInput = document.querySelector('#input-url').value
@@ -57,11 +28,12 @@ function createFormHandler(e) {
     postQuote(companyInput, urlInput, quoteAmountInput, projectInput) 
 }
 
+document.querySelector('#quoteForm').addEventListener('submit', (e) => createFormHandler(e))
+
 
 function postQuote(company, website, quote_amount, project_id) {
-    //  console.log(company, website, quote_amount, project_id);
     let bodyData = {company, website, quote_amount, project_id}
-
+    let endPoint = "http://localhost:3000/api/v1/quotes";
     fetch(endPoint, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
@@ -69,19 +41,59 @@ function postQuote(company, website, quote_amount, project_id) {
     })
     .then(response => response.json())
     .then(quote => {
-        console.log(quote);
-        const quoteData = quote.data.attributes
-        const quoteMarkup = `
-                <div data-id=${quote.data.id}>
-                    <tr>
-                        <th scope="row"></th>
-                             <td>${quoteData.company} </td>
-                             <td>${quoteData.website} </td>
-                             <td>${quoteData.quote_amount} </td>
-                             <td>${quoteData.project.name}</td>
-                    </tr>
+        const newQuote = new Quote(quote.data.id, quote.data.attributes)
+
+            document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
+
+            document.querySelector('#quoteForm').reset();
+// console.log(newQuote);
+    })
+}
+
+
+// PROJECT MODAL
+
+// Get the modal
+const modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+const btn = document.getElementById("myButton");
+
+// Get the <span> element that closes the modal
+const span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.addEventListener('click', () => {
+    modal.style.display = "block";
+})
+
+// When the user clicks on <span> (x), close the modal
+span.addEventListener('click', function () {
+    modal.style.display = "none";
+})
+
+// When the user clicks anywhere outside of the modal, close it
+window.addEventListener("click", function(e) {
+    if (e.target == modal) {
+        modal.style.display = "none";
+    }
+})
+
+
+// PROJECT GET FETCH
+function getProject() {
+    fetch("http://localhost:3000/api/v1/projects")
+    .then(res => res.json())
+    .then(project => {
+        project.data.forEach(project => {
+            // debugger
+            const projectInfo = `
+                <div data-id=${project.id}>
+                <h3><li>${project.attributes.name}</li></h3>
+                <h5>$ ${project.attributes.budget} budget</h5>
                 </div>`;
 
-            document.querySelector('#quote_container').innerHTML += quoteMarkup;
+            document.querySelector('.modalInfo').innerHTML += projectInfo
+        })
     })
 }
