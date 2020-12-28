@@ -25,6 +25,7 @@ class Quote {
                 </tr>
             </div>`;
             return quoteData;
+
     }
 
 }
