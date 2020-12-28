@@ -91,23 +91,12 @@ function getProject() {
                 <div data-id=${project.id}>
                 <h3>${project.attributes.name} </h3>
                 <p>$ ${project.attributes.budget} budget</p>
-                
                 </div>`;
 
-            document.querySelector('.modalInfo').innerHTML += projectInfo.renderProjectModal();
+            document.querySelector('.modalInfo').innerHTML += projectInfo
         })
     })
 }
-
-// .then(function(json) {
-//     for(var i = 0; i < json.products.length; i++) {
-//       var listItem = document.createElement('li');
-//       listItem.innerHTML = '<strong>' + json.products[i].Name + '</strong>';
-//       listItem.innerHTML +=' can be found in ' + json.products[i].Location + '.';
-//       listItem.innerHTML +=' Cost: <strong>£' + json.products[i].Price + '</strong>';
-//       myList.appendChild(listItem);
-//     }
-//   })
 
 // renderProjectModal() {
 
