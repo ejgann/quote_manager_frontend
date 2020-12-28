@@ -86,11 +86,11 @@ function getProject() {
     .then(res => res.json())
     .then(project => {
         project.data.forEach(project => {
-            debugger
+            // debugger
             const projectInfo = `
                 <div data-id=${project.id}>
-                <h3>${project.attributes.name} </h3>
-                <p>$ ${project.attributes.budget} budget</p>
+                <h3><li>${project.attributes.name}</li></h3>
+                <h5>$ ${project.attributes.budget} budget</h5>
                 </div>`;
 
             document.querySelector('.modalInfo').innerHTML += projectInfo
@@ -98,6 +98,30 @@ function getProject() {
     })
 }
 
-// renderProjectModal() {
 
-// }
+function toggleQuotes() {
+    let quoteBtn = document.getElementById("quoteTableBtn");
+    let quoteTable = document.getElementById('quoteTable');
+    let showQuote = false
+
+    // quoteBtn.addEventListener('click', () => {
+    //     showQuote = !showQuote
+    //     if (showQuote) {
+    //         quoteTable.style.display = 'block'
+    //     } else {
+    //         quoteTable.style.display = 'none'
+    //     }
+    // })
+
+    if (quoteTable.style.display == "block") {
+        quoteTable.style.display = "none";
+
+        document.getElementById(quoteTableBtn.id).value = 'View Active Quotes';
+
+    } else {
+        quoteTable.display = "block";
+        document.getElementById(quoteTableBtn.id).value = "Hide Active Quotes";
+    }
+}
+
+    document.getElementById("quoteTableBtn").addEventListener('click', toggleQuotes())

@@ -35,13 +35,13 @@ text-decoration: none;
 cursor: pointer;
 }
 
-.grid2x2 {
+/* .grid2x2 {
   min-height: 100%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-}
-.grid2x2 > div {
+} */
+/* .grid2x2 > div {
   display: flex; 
   flex-basis: calc(50% - 40px);  
   justify-content: center;
@@ -52,8 +52,8 @@ cursor: pointer;
   color: #f1faee;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   font-family: 'Roboto', sans-serif;
-}
-.grid2x2 > div > div {
+} */
+/* .grid2x2 > div > div {
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -65,27 +65,6 @@ cursor: pointer;
    
   background-color: #e63946;
   color: #f1faee;
-}
-
-/* .projectBox {
-  width: 200px;
-  height: 200px;
-  background-color: green;
-  color: white;
-  display: flex;
-  margin: 20px; 
-  flex-basis:content;  
-  justify-content: center;
-  flex-direction: column;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  font-family: 'Roboto', sans-serif;
-}
-
-.projectBox > h3 {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  margin: 20px;
 } */
 
 main.quote-main-container {
@@ -103,60 +82,6 @@ div.page-header {
   margin: 5px;
   text-align: center;
 }
-
-/* .grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  grid-gap: 10px;
-  background-color: slateblue;
-  padding: 10px;
-}
-
-.grid-container > div {
-  background-color: red;
-  text-align: center;
-  padding: 20px 0;
-  font-size: 30px;
-}
-
-.project {
-  width: 200px;
-  height: 200px;
-  margin: 10px;
-  padding: 5px;
-  grid-row: 1 / span 1;
-} */
-
-/* .box {  
-  width: 600px;
-  margin: 10px;
-  padding: 5px;
-  grid-row: 1 / span 1;
-}
-
-#box1 {
-  background-color: gray;
-  color: white;
-  
-  
-}
-
-#box2 {
-  background-color: gray;
-  color: white;
-  
-}
-
-#box3 {
-  background-color: gray;
-  color: white;
-
-}
-
-#box4 {
-  background-color: gray;
-  color: white;
- } */ 
 
  /* The Modal (background) */
 .modal {
@@ -197,8 +122,7 @@ div.page-header {
 }
 
 
-
-#myButton {
+#myButton, #quoteTableBtn {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   font-family: 'Roboto', sans-serif;
 	background-color:#e63946;
@@ -212,12 +136,14 @@ div.page-header {
   text-decoration:none;
 }
 	
-	#myButton:hover {
+  #myButton:hover,
+  #quoteTableBtn:hover {
   background-color: #1d3557;
   color: #f1faee;
   }
 
- #myButton:active {
+ #myButton:active
+ #quoteTableBtn:active {
 	position:relative;
 	top:1px;
 }

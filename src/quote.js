@@ -14,7 +14,6 @@ class Quote {
     }
 
     renderQuoteRow() {
-        // debugger
         const quoteData = `
             <div data-id=${this.id}>
                 <tr class="hoverRow">
@@ -26,7 +25,6 @@ class Quote {
                 </tr>
             </div>`;
             return quoteData;
-    
     }
 
 }
