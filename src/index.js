@@ -57,17 +57,30 @@ function getProject() {
     .then(project => {
         project.data.forEach(project => {
             // debugger
-            const projectInfo = `
+            
+            // for(let i = 0, l = projects.length; i < l; i++) 
+               
+            //  var lawnInfo = `    
+            //     <h3>${project.data[0].attributes.quotes}</h3>`;
+                // 
+                // Since each element is an object (in our example),
+                // we can now access the objects properties with `obj.id` and `obj.name`. 
+                // We could also use `data.items[i].id`.
+            
+
+            const lawnInfo = `
                 <div data-id=${project.id}>
                 <h4>${project.attributes.name}</h4>
-                <h5><li>Budget: $ ${project.attributes.budget}</li></h5>
-                <br>
+                <h5>Budget: $${project.attributes.budget}</h5>
+                <hr>
                 </div>`;
 
-            document.querySelector('.accordionItemContent').innerHTML += projectInfo
+            document.querySelector('.accordionItemContent').innerHTML += lawnInfo
         })
     })
 }
+
+// <h5><li>Budget: $ ${project.attributes.budget}</li></h5>
 
 // ACCORDIAN
 
@@ -84,4 +97,10 @@ var accItem = document.getElementsByClassName('accordionItem');
         if (itemClass == 'accordionItem close') {
             this.parentNode.className = 'accordionItem open';
         }
+    }
+    function toggleIcon(e) {
+        $(e.target)
+            .prev('.panel-heading')
+            .find(".more-less")
+            .toggleClass('glyphicon-plus glyphicon-minus');
     }

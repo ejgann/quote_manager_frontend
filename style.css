@@ -28,6 +28,7 @@ div.jumbotron {
   color: #f1faee;
   margin: 0 auto;
   display: block;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #create-button:hover,
@@ -72,13 +73,15 @@ div.page-header {
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
+
 .accordionItemHeading{
   cursor:pointer;
   margin:0px 0px 10px 0px;
   padding:10px;
-  background:#1d3557;
-  color:#f1faee;
+  background-color: #1d3557;
+  color: #f1faee;
   width:100%;
+  
   -webkit-border-radius: 3px;
 -moz-border-radius: 3px;
   border-radius: 3px;
