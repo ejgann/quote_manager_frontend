@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     getProject();
 });
 
+
 function getQuotes() {
     fetch("http://localhost:3000/api/v1/quotes")
     .then(res => res.json())
@@ -15,7 +16,6 @@ function getQuotes() {
         })
     })
 }
-
 
 function createFormHandler(e) {
     e.preventDefault()
@@ -46,7 +46,6 @@ function postQuote(company, website, quote_amount, project_id) {
             document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
 
             document.querySelector('#quoteForm').reset();
-// console.log(newQuote);
     })
 }
 
@@ -69,8 +68,6 @@ function getProject() {
         })
     })
 }
-
-
 
 // ACCORDIAN
 
