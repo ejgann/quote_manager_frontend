@@ -92,7 +92,10 @@ function getProject() {
                 <h3>${project.attributes.name}</h3>
                 <h4><li>Budget: $ ${project.attributes.budget}</li></h4>
                 </div>`;
-
+project.attributes.quotes.forEach(project => {
+    const projectInfo = `
+    `
+})
 // <h4>HVAC</h4>
 //           <h6>Budget: $ 8000</h6>
 //           <ul>

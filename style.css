@@ -15,6 +15,7 @@ div.jumbotron {
 .form-container {
   background-color: #f1faee;
   color: #1d3557;
+  width: 45%;
   padding: 20px;
   margin-bottom: 20px;
   float: left;
@@ -25,6 +26,8 @@ div.jumbotron {
 #create-button {
   background-color:#457b9d;
   color: #f1faee;
+  margin: 0 auto;
+  display: block;
 }
 
 #create-button:hover,
@@ -153,10 +156,10 @@ div.page-header {
 .accordionWrapper{
   padding:30px;
   background:#f1faee;
-  float:left;
+  float: right;
   width:50%;
   box-sizing:border-box;
-  margin:10%;    
+  /* margin: 2%;     */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -188,6 +191,7 @@ div.page-header {
   transform: scaleY(0);
   float:left;
   display:block;
+
 }
 .open .accordionItemContent{
   padding: 20px;
