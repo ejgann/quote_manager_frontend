@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     getProject();
 });
 
+
 function getQuotes() {
     fetch("http://localhost:3000/api/v1/quotes")
     .then(res => res.json())
@@ -15,7 +16,6 @@ function getQuotes() {
         })
     })
 }
-
 
 function createFormHandler(e) {
     e.preventDefault()
@@ -46,38 +46,8 @@ function postQuote(company, website, quote_amount, project_id) {
             document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
 
             document.querySelector('#quoteForm').reset();
-// console.log(newQuote);
     })
 }
-
-
-// PROJECT MODAL
-
-// Get the modal
-const modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-const btn = document.getElementById("myButton");
-
-// Get the <span> element that closes the modal
-const span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-btn.addEventListener('click', () => {
-    modal.style.display = "block";
-})
-
-// When the user clicks on <span> (x), close the modal
-span.addEventListener('click', function () {
-    modal.style.display = "none";
-})
-
-// When the user clicks anywhere outside of the modal, close it
-window.addEventListener("click", function(e) {
-    if (e.target == modal) {
-        modal.style.display = "none";
-    }
-})
 
 
 // PROJECT GET FETCH
@@ -87,13 +57,50 @@ function getProject() {
     .then(project => {
         project.data.forEach(project => {
             // debugger
-            const projectInfo = `
+            
+            // for(let i = 0, l = projects.length; i < l; i++) 
+               
+            //  var lawnInfo = `    
+            //     <h3>${project.data[0].attributes.quotes}</h3>`;
+                // 
+                // Since each element is an object (in our example),
+                // we can now access the objects properties with `obj.id` and `obj.name`. 
+                // We could also use `data.items[i].id`.
+            
+
+            const lawnInfo = `
                 <div data-id=${project.id}>
-                <h3><li>${project.attributes.name}</li></h3>
-                <h5>$ ${project.attributes.budget} budget</h5>
+                <h4>${project.attributes.name}</h4>
+                <h5>Budget: $${project.attributes.budget}</h5>
+                <hr>
                 </div>`;
 
-            document.querySelector('.modalInfo').innerHTML += projectInfo
+            document.querySelector('.accordionItemContent').innerHTML += lawnInfo
         })
     })
 }
+
+// <h5><li>Budget: $ ${project.attributes.budget}</li></h5>
+
+// ACCORDIAN
+
+var accItem = document.getElementsByClassName('accordionItem');
+    var accHD = document.getElementsByClassName('accordionItemHeading');
+    for (i = 0; i < accHD.length; i++) {
+        accHD[i].addEventListener('click', toggleItem, false);
+    }
+    function toggleItem() {
+        var itemClass = this.parentNode.className;
+        for (i = 0; i < accItem.length; i++) {
+            accItem[i].className = 'accordionItem close';
+        }
+        if (itemClass == 'accordionItem close') {
+            this.parentNode.className = 'accordionItem open';
+        }
+    }
+    function toggleIcon(e) {
+        $(e.target)
+            .prev('.panel-heading')
+            .find(".more-less")
+            .toggleClass('glyphicon-plus glyphicon-minus');
+    }
