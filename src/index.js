@@ -51,35 +51,6 @@ function postQuote(company, website, quote_amount, project_id) {
 }
 
 
-// // PROJECT MODAL
-
-// // Get the modal
-// const modal = document.getElementById("myModal");
-
-// // Get the button that opens the modal
-// const btn = document.getElementById("myButton");
-
-// // Get the <span> element that closes the modal
-// const span = document.getElementsByClassName("close")[0];
-
-// // When the user clicks on the button, open the modal
-// btn.addEventListener('click', () => {
-//     modal.style.display = "block";
-// })
-
-// // When the user clicks on <span> (x), close the modal
-// span.addEventListener('click', function () {
-//     modal.style.display = "none";
-// })
-
-// // When the user clicks anywhere outside of the modal, close it
-// window.addEventListener("click", function(e) {
-//     if (e.target == modal) {
-//         modal.style.display = "none";
-//     }
-// })
-
-
 // PROJECT GET FETCH
 function getProject() {
     fetch("http://localhost:3000/api/v1/projects")
@@ -89,20 +60,10 @@ function getProject() {
             // debugger
             const projectInfo = `
                 <div data-id=${project.id}>
-                <h3>${project.attributes.name}</h3>
-                <h4><li>Budget: $ ${project.attributes.budget}</li></h4>
+                <h4>${project.attributes.name}</h4>
+                <h5><li>Budget: $ ${project.attributes.budget}</li></h5>
+                <br>
                 </div>`;
-project.attributes.quotes.forEach(project => {
-    const projectInfo = `
-    `
-})
-// <h4>HVAC</h4>
-//           <h6>Budget: $ 8000</h6>
-//           <ul>
-//             <li>Company 1 - Quote: $5000</li>
-//             <li>Company 2 - Quote: $6500</li>
-//             <li>Company 3 - Quote: $4000</li>
-//           </ul>
 
             document.querySelector('.accordionItemContent').innerHTML += projectInfo
         })
