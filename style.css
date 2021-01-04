@@ -1,11 +1,11 @@
 div.container {
-  background-color: #457b9d;
+  background-color: #8d99ae;
   padding: 20px;
 }
 
 div.jumbotron {
-  background-color: #e63946;
-  color: #f1faee;
+  background-color: #2b2d42;
+  color: #edf2f4;
   font-family: Arial, Helvetica, sans-serif;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   font-family: 'Roboto', sans-serif;
@@ -13,8 +13,8 @@ div.jumbotron {
 }
 
 .form-container {
-  background-color: #f1faee;
-  color: #1d3557;
+  background-color: #edf2f4;
+  color: #2b2d42;
   width: 45%;
   padding: 20px;
   margin-bottom: 20px;
@@ -24,8 +24,8 @@ div.jumbotron {
 }
 
 #create-button {
-  background-color:#457b9d;
-  color: #f1faee;
+  background-color:#2b2d42;
+  color: #edf2f4;
   margin: 0 auto;
   display: block;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -33,15 +33,15 @@ div.jumbotron {
 
 #create-button:hover,
 #create-button:focus {
-background-color: #1d3557;
-color: #f1faee;
+background-color: #2b2d42;
+color: #edf2f4;
 text-decoration: none;
 cursor: pointer;
 }
 
 main.quote-main-container {
-  background-color: #1d3557;
-  color: #f1faee;
+  background-color: #2b2d42;
+  color: #edf2f4;
   padding: 20px 20px 20px 20px;
   width: 100%;
   clear: left;
@@ -58,7 +58,7 @@ div.page-header {
 /* ACCORDIAN */
 .accordionWrapper{
   padding:30px;
-  background:#f1faee;
+  background:#edf2f4;
   float: right;
   width:50%;
   box-sizing:border-box;
@@ -78,8 +78,8 @@ div.page-header {
   cursor:pointer;
   margin:0px 0px 10px 0px;
   padding:10px;
-  background-color: #1d3557;
-  color: #f1faee;
+  background-color: #2b2d42;
+  color: #edf2f4;
   width:100%;
   
   -webkit-border-radius: 3px;
@@ -97,13 +97,13 @@ div.page-header {
   transform: scaleY(0);
   float:left;
   display:block;
-  background-color: #1d3557;
+  background-color: #2b2d42;
 }
 
 .open .accordionItemContent{
   padding: 20px;
-  background-color: #f1faee;
-  border: 1px solid #1d3557;
+  background-color: #edf2f4;
+  border: 1px solid #2b2d42;
   width: 100%;
   margin: 0px 0px 10px 0px;
   display:block;
@@ -137,6 +137,6 @@ div.page-header {
   -moz-border-radius-bottomleft: 0px;
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
-  background-color: #1d3557;
-  color: #f1faee;
+  background-color: #2b2d42;
+  color: #edf2f4;
 }
