@@ -97,12 +97,13 @@ div.page-header {
   transform: scaleY(0);
   float:left;
   display:block;
+  background-color: #1d3557;
 }
 
 .open .accordionItemContent{
   padding: 20px;
   background-color: #f1faee;
-  border: 1px solid #c4c6c9;
+  border: 1px solid #1d3557;
   width: 100%;
   margin: 0px 0px 10px 0px;
   display:block;

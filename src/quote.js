@@ -28,6 +28,35 @@ class Quote {
 
     }
 
+    static getQuotes() {
+        fetch("http://localhost:3000/api/v1/quotes")
+        .then(res => res.json())
+        .then(quote => {
+            quote.data.forEach(quote => {
+                const newQuote = new Quote(this.id, quote.attributes)
+    
+                document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
+            })
+        })
+    }
+    
+    // static postQuote(company, website, quote_amount, project_id) {
+    //     let bodyData = {company, website, quote_amount, project_id}
+    //     fetch("http://localhost:3000/api/v1/quotes", {
+    //         method: "POST",
+    //         headers: {"Content-Type": "application/json"},
+    //         body: JSON.stringify(bodyData)
+    //     })
+    //     .then(response => response.json())
+    //     .then(quote => {
+    //         const newQuote = new Quote(this.id, quote.attributes)
+    
+    //             document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
+    
+    //             document.querySelector('#quoteForm').reset();
+    //     })
+    // }
+
 }
 
 Quote.all = [];
