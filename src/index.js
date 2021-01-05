@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     getProject();
 });
 
-
+// moved into quote.js for OOJS
 // function getQuotes() {
 //     fetch("http://localhost:3000/api/v1/quotes")
 //     .then(res => res.json())
@@ -83,13 +83,15 @@ function getProject() {
 
 // ACCORDIAN
 
-var accItem = document.getElementsByClassName('accordionItem');
-    var accHD = document.getElementsByClassName('accordionItemHeading');
+    let accItem = document.getElementsByClassName('accordionItem');
+    let accHD = document.getElementsByClassName('accordionItemHeading');
+    
     for (i = 0; i < accHD.length; i++) {
         accHD[i].addEventListener('click', toggleItem, false);
     }
+
     function toggleItem() {
-        var itemClass = this.parentNode.className;
+        let itemClass = this.parentNode.className;
         for (i = 0; i < accItem.length; i++) {
             accItem[i].className = 'accordionItem close';
         }
