@@ -1,21 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('LOADED');
-    Quote.getQuotes();
+    
+    getQuotes();
     getProject();
+    Quote.sortAmounts();
 });
 
-// moved into quote.js for OOJS
-// function getQuotes() {
-//     fetch("http://localhost:3000/api/v1/quotes")
-//     .then(res => res.json())
-//     .then(quote => {
-//         quote.data.forEach(quote => {
-//             const newQuote = new Quote(quote.id, quote.attributes)
 
-//             document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
-//         })
-//     })
-// }
+function getQuotes() {
+    fetch("http://localhost:3000/api/v1/quotes")
+    .then(res => res.json())
+    .then(quote => {
+        quote.data.forEach(quote => {
+            const newQuote = new Quote(quote.id, quote.attributes)
+
+            document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
+        })
+    })
+}
 
 function createFormHandler(e) {
     e.preventDefault()
@@ -31,8 +32,8 @@ function createFormHandler(e) {
 document.querySelector('#quoteForm').addEventListener('submit', (e) => createFormHandler(e))
 
 
-function postQuote(company, website, quote_amount, project_id) {
-    let bodyData = {company, website, quote_amount, project_id}
+function postQuote(company, website, quoteAmount, projectId) {
+    let bodyData = {company, website, quoteAmount, projectId}
     let endPoint = "http://localhost:3000/api/v1/quotes";
     fetch(endPoint, {
         method: "POST",
@@ -41,6 +42,7 @@ function postQuote(company, website, quote_amount, project_id) {
     })
     .then(response => response.json())
     .then(quote => {
+
         const newQuote = new Quote(quote.data.id, quote.data.attributes)
 
             document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
