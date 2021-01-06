@@ -1,17 +1,17 @@
 class Quote {
 
     // constructor maps the values from the database to create and reference quote instances
-    // constructor(id, quoteAttributes) {
+    constructor(id, quoteAttributes) {
 
-    //     this.id = id;
-    //     this.company = quoteAttributes.company;
-    //     this.website = quoteAttributes.website;
-    //     this.quoteAmount = quoteAttributes.quote_amount;
-    //     this.projectId = quoteAttributes.project_id;
-    //     this.projectName = quoteAttributes.project.name;
+        this.id = id;
+        this.company = quoteAttributes.company;
+        this.website = quoteAttributes.website;
+        this.quoteAmount = quoteAttributes.quote_amount;
+        this.projectId = quoteAttributes.project_id;
+        this.projectName = quoteAttributes.project.name;
 
-    //     Quote.all.push(this);
-    // }
+        // Quote.all.push(this);
+    }
 
     renderQuoteRow() {
         const quoteData = `
@@ -28,32 +28,44 @@ class Quote {
 
     }
 
-    // static getQuotes() {
-    //     fetch("http://localhost:3000/api/v1/quotes")
-    //     .then(res => res.json())
-    //     .then(quote => {
-    //         quote.data.forEach(quote => {
-    //             debugger
-    //             const newQuote = new Quote(this.id, quote.attributes)
+    static getQuotes() {
+        fetch("http://localhost:3000/api/v1/quotes")
+        .then(res => res.json())
+        .then(quote => {
+            quote.data.forEach(quote => {
+                const newQuote = new Quote(this.id, quote.attributes)
                 
-    //             document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
-    //         })
-    //     })
+                document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
+            })
+        })
+    }
+
+// LIVE CODING - SORT QUOTE AMOUNTS COLUMN
+   
+// execute sort on DOM load
+    // static sortAmounts() {
+    //     let switching = true;
+
+        // main loop that runs until table is sorted
+        // while (switching) {
+        //     switching = false;
+        //     var rows = 
+            // runs for all rows
+            // for (i = 1; i< row.length; i++) {
+                // check if switch is required
+                // if (quoteA > quoteB) {
+                    // perform switch
+                    // performSwitch();
+    //             }
+    //         }
+    //     }
     // }
 
-// LIVE CODING PORTION
-// sort method changes original array, so need to use an empty array and push things into it
-// cycle through quoteAmounts
-
-
-    // compareAmounts() {
-    //     quote.data.compareNumbers(a, b) {
-    //         return a - b;
-    //     }
     static sortAmounts() {
         fetch("http://localhost:3000/api/v1/quotes")
         .then(response => response.json())
         .then(quote => {
+            // debugger
             quote.data.sort(function (a, b) {
                 const quoteA = a.attributes.quote_amount;
                 const quoteB = b.attributes.quote_amount;
@@ -66,13 +78,17 @@ class Quote {
                 return 0;
             })
                 quote.data.forEach(quote => {
-                    const oneQuote = quote.attributes.quote_amount;
-                    console.log(oneQuote);
+                    const sortedQuote = quote.attributes.quote_amount;
+                    console.log(sortedQuote);
+debugger
+                    
+                    
+                    
 
                     })
             })
         }
-    }
+}
 
    
 
