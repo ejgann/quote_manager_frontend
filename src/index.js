@@ -2,21 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     Quote.getQuotes();
     getProject();
-    Quote.sortAmounts();
+    
 });
 
-
-// function getQuotes() {
-//     fetch("http://localhost:3000/api/v1/quotes")
-//     .then(res => res.json())
-//     .then(quote => {
-//         quote.data.forEach(quote => {
-//             const newQuote = new Quote(quote.id, quote.attributes)
-
-//             document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
-//         })
-//     })
-// }
 
 function createFormHandler(e) {
     e.preventDefault()
