@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     Quote.getQuotes();
     getProject();
-    
 });
 
 
@@ -20,8 +19,8 @@ function createFormHandler(e) {
 document.querySelector('#quoteForm').addEventListener('submit', (e) => createFormHandler(e))
 
 
-function postQuote(company, website, quoteAmount, projectId) {
-    let bodyData = {company, website, quoteAmount, projectId}
+function postQuote(company, website, quote_amount, project_id) {
+    let bodyData = {company, website, quote_amount, project_id}
     let endPoint = "http://localhost:3000/api/v1/quotes";
     fetch(endPoint, {
         method: "POST",
@@ -30,7 +29,6 @@ function postQuote(company, website, quoteAmount, projectId) {
     })
     .then(response => response.json())
     .then(quote => {
-
         const newQuote = new Quote(quote.data.id, quote.data.attributes)
 
             document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
