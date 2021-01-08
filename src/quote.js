@@ -24,6 +24,7 @@ class Quote {
                     <td>${this.projectName}</td>
                 </tr>
             </div>`;
+
             return quoteData;
 
     }
@@ -33,61 +34,70 @@ class Quote {
         .then(res => res.json())
         .then(quote => {
             quote.data.forEach(quote => {
-                const newQuote = new Quote(this.id, quote.attributes)
-    
+                const newQuote = new Quote(this.id, quote.attributes);
+
                 document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
-            })
+
+                })     
         })
     }
-    
-    // static postQuote(company, website, quote_amount, project_id) {
-    //     let bodyData = {company, website, quote_amount, project_id}
-    //     fetch("http://localhost:3000/api/v1/quotes", {
-    //         method: "POST",
-    //         headers: {"Content-Type": "application/json"},
-    //         body: JSON.stringify(bodyData)
-    //     })
-    //     .then(response => response.json())
-    //     .then(quote => {
-    //         const newQuote = new Quote(this.id, quote.attributes)
-    
-    //             document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
-    
-    //             document.querySelector('#quoteForm').reset();
-    //     })
-    // }
 
+    static sortAmounts() {
+        fetch("http://localhost:3000/api/v1/quotes")
+        .then(response => response.json())
+        .then(quote => {
+            quote.data.sort(function(a, b) {
+                const quoteA = a.attributes.quote_amount;
+                const quoteB = b.attributes.quote_amount;
+                
+                if (quoteA < quoteB) {
+                    return -1;
+                }
+                if (quoteA > quoteB) {
+                    return 1;
+                }
+                return 0;
+            })
+                quote.data.forEach(quote => {
+                    const sortedQuote = quote.attributes.quote_amount;
+
+                    console.log(sortedQuote);
+                })
+            })
+        }
 }
 
+
 Quote.all = [];
+    
+  
 
 
-
+    
+  
 // LIVE CODING - SORT QUOTE AMOUNTS COLUMN
    
-
-
     // sortAmounts() {
     //     fetch("http://localhost:3000/api/v1/quotes")
     //     .then(response => response.json())
     //     .then(quote => {
     //         quote.data.sort(function(a, b) {
-    //             const quoteA = a.attributes.quote_amount;
-    //             const quoteB = b.attributes.quote_amount;
+        //         const quoteA = a.attributes.quote_amount;
+        //         const quoteB = b.attributes.quote_amount;
                 
-    //             if (quoteA < quoteB) {
-    //                 return -1;
-    //             }
-    //             if (quoteA > quoteB) {
-    //                 return 1;
-    //             }
-    //             return 0;
-    //         })
-    //             quote.data.forEach(quote => {
-    //                 const sortedQuote = quote.attributes.quote_amount;
+        //         if (quoteA < quoteB) {
+        //             return -1;
+        //         }
+        //         if (quoteA > quoteB) {
+        //             return 1;
+        //         }
+        //         return 0;
+        //     })
+        //         quote.data.forEach(quote => {
+        //             const sortedQuote = quote.attributes.quote_amount;
 
-    //                 console.log(sortedQuote);
-    //             })
-    //         })
-    //     }
+        //             console.log(sortedQuote);
+        //         })
+        //     })
+        // }
     
