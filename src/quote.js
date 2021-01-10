@@ -2,7 +2,7 @@ class Quote {
 
     // constructor maps the values from the database to quote instances
     constructor(id, quoteAttributes) {
-
+        this.all
         this.id = id;
         this.company = quoteAttributes.company;
         this.website = quoteAttributes.website;
@@ -10,7 +10,7 @@ class Quote {
         this.projectId = quoteAttributes.project_id;
         this.projectName = quoteAttributes.project.name;
 
-        Quote.all.push(this);
+        // this.all.push
     }
 
     renderQuoteRow() {
@@ -29,16 +29,10 @@ class Quote {
 
     }
 
-    getQuotes() {
+    static getQuotes() {
         fetch("http://localhost:3000/api/v1/quotes")
         .then(res => res.json())
         .then(quote => {
-            quote.data.forEach(quote => {
-                const newQuote = new Quote(this.id, quote.attributes);
-
-                document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
-            })
-
             const sorted = quote.data.sort(function(a, b){
                 const quoteA = a.attributes.quote_amount;
                 const quoteB = b.attributes.quote_amount;
@@ -50,13 +44,19 @@ class Quote {
                     return 1;
                 }
                 return 0;
-            
- 
             })
-console.log(sorted);
-            debugger
+            console.log(sorted);
+            
+            quote.data.forEach(quote => {
+                const newQuote = new Quote(this.id, quote.attributes);
+
+                document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
+            })
+            // console.log(sorted);
+//             debugger
         })
-    }
+        }
+    
 
 }
 
