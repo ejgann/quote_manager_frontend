@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     Quote.getQuotes();
-    Quote.sortAmounts();
     getProject();
 });
 

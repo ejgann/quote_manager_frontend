@@ -37,16 +37,9 @@ class Quote {
                 const newQuote = new Quote(this.id, quote.attributes);
 
                 document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
+            })
 
-                })     
-        })
-    }
-
-    static sortAmounts() {
-        fetch("http://localhost:3000/api/v1/quotes")
-        .then(response => response.json())
-        .then(quote => {
-            quote.data.sort(function(a, b) {
+            const sorted = quote.data.sort(function(a, b){
                 const quoteA = a.attributes.quote_amount;
                 const quoteB = b.attributes.quote_amount;
                 
@@ -57,14 +50,13 @@ class Quote {
                     return 1;
                 }
                 return 0;
+            
             })
-                quote.data.forEach(quote => {
-                    const sortedQuote = quote.attributes.quote_amount;
 
-                    console.log(sortedQuote);
-                })
-            })
-        }
+            debugger
+        })
+    }
+
 }
 
 
@@ -100,4 +92,3 @@ Quote.all = [];
         //         })
         //     })
         // }
-    
