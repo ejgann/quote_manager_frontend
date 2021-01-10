@@ -29,7 +29,7 @@ class Quote {
 
     }
 
-    static getQuotes() {
+    getQuotes() {
         fetch("http://localhost:3000/api/v1/quotes")
         .then(res => res.json())
         .then(quote => {
@@ -51,8 +51,9 @@ class Quote {
                 }
                 return 0;
             
+ 
             })
-
+console.log(sorted);
             debugger
         })
     }
