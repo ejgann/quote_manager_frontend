@@ -30,6 +30,7 @@ function postQuote(company, website, quote_amount, project_id) {
     })
     .then(response => response.json())
     .then(quote => {
+
         const newQuote = new Quote(quote.data.id, quote.data.attributes)
 
             document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();

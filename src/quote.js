@@ -29,40 +29,70 @@ class Quote {
 
     }
 
-    static getQuotes() {
-        fetch("http://localhost:3000/api/v1/quotes")
-        .then(res => res.json())
-        .then(quote => {
-            
-            // const sorted = 
-            quote.data.sort(function(a, b) {
-                const quoteA = a.attributes.quote_amount;
-                const quoteB = b.attributes.quote_amount;
-                
-                if (quoteA < quoteB) {
-                    return -1;
-                }
-                if (quoteA > quoteB) {
-                    return 1;
-                }
-                return 0;
-            })
-            
-            // console.log(sorted);
-    // debugger
-            quote.data.forEach(quote => {
-                const newQuote = new Quote(this.id, quote.attributes);
-                
-                document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
-
-            })
-        
-        })
+    static async getQuotes() {
+        try {
+            const response = await fetch("http://localhost:3000/api/v1/quotes")
+            const quote = await response.json()
+                 
+                 const sorted = 
+                 quote.data.sort(function(a, b) {
+                     const quoteA = a?.attributes.quote_amount;
+                     const quoteB = b.attributes.quote_amount;
+                     
+                     if (quoteA < quoteB) {
+                         return -1;
+                     }
+                     if (quoteA > quoteB) {
+                         return 1;
+                     }
+                     return 0;
+                     
+                 })
+                 quote.data.forEach(quote => {
+                    const newQuote = new Quote(this.id, quote.attributes);
+                    
+                    document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
+    
+                })
+        } catch(error) {
+            console.log(error);
+        }
+       
+    
     }
+}
+
+    // static getQuotes() {
+    //     fetch("http://localhost:3000/api/v1/quotes")
+    //     .then(res => res.json())
+    //     .then(quote => {
+            
+    //         const sorted = 
+    //         quote.data.sort(function(a, b) {
+    //             const quoteA = a.attributes.quote_amount;
+    //             const quoteB = b.attributes.quote_amount;
+                
+    //             if (quoteA < quoteB) {
+    //                 return -1;
+    //             }
+    //             if (quoteA > quoteB) {
+    //                 return 1;
+    //             }
+    //             return 0;
+                
+    //         })
+
+            // quote.data.forEach(quote => {
+            //     const newQuote = new Quote(this.id, quote.attributes);
+                
+            //     document.querySelector('#quote_container').innerHTML += newQuote.renderQuoteRow();
+
+            // })
+        
+        
     
 
-}
+
 
 
 Quote.all = [];
-    
