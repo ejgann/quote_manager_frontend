@@ -14,6 +14,7 @@ function createFormHandler(e) {
     const projectInput = document.querySelector('#projects').value
     const projectId = parseInt(projectInput)
     postQuote(companyInput, urlInput, quoteAmountInput, projectInput) 
+    
 }
 
 document.querySelector('#quoteForm').addEventListener('submit', (e) => createFormHandler(e))
