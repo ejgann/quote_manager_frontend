@@ -1,11 +1,11 @@
 # Quote Manager
 
 * [Quote Manager Demo](https://vimeo.com/497047241)
-* ![gif title](src/quote_manager.gif)
 
 Quote Manager is a web application used to organize professional quotes obtained for one's home improvement projects. The application is divided into two separate GitHub repositories. While this one is for the frontend, the backend can be found here:  git@github.com:ejgann/quote_manager_backend.git
 
 ## Features
+![gif title](src/quote_manager.gif)
 
 - A dashboard on which to view all active quotes
 - A form through which to add newly acquired quotes
