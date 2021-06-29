@@ -34,7 +34,6 @@ Check it out: [Frontend Repo](https://github.com/ejgann/quote_manager_frontend) 
 * Run `open index.html`
 
 ## Features
-![gif title](app/quote_manager.gif)
 * A user can view a table containing all of the quotes they have accumulated for all household projects
 * Upon receiving a new project quote, the user can add that information as a new quote
 * The user can toggle a list of their current projects, including the alotted budget for each
